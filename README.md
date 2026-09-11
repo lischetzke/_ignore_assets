@@ -1,0 +1,1 @@
+- `curl -fsSL https://raw.githubusercontent.com/lischetzke/_ignore_assets/refs/heads/main/trustedcakeys.sh | bash`
