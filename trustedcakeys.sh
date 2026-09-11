@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCrcGFbB5ZF1z7EDqVvzSt2xgTg+Atzb+Q/917qWR3sc0fIwxPUKFdWoNSTTd1+MQ0xdmLK+HUCQdtMQQ+1VR3Qv21mnPrnYjFWXJaJ+jTYkg/wiMKKOL5LJTLCJhhtJW1k/VKU0WhDeLNXDv6v2+Q5nZD+heTneTdaaWeUPfqY77KKPcNqGsKXVQlCljcX7QBv62g5ADtNLA9tK8WuVYQ+rYbWf886UWbyH2WsQBh06cSqM5vFnscsmk9j5cAP8EgVX0EeG8IljBkI+y0SFsrTfswKvjyx7KkBBSyMyrgoNwJ00oMSMtFYSWV9B01bv7WRBToVn6ycZPRtXHnW7mJsYlv6/rcdVgGyIwGkEeRV7gHYE4gi35eCo831CAJrpMtAWK0r9WrKZgwiGya2A2yNVfRn6hS+W0/OuzIhnimtMeiuj0PBTL4mo4r3FXjm8jCxppZYsu/22USzaZsPCtLiZSIN1SIh4F3bfbnRs9ITtWElUM6MJu4ZSvlS3lr/hL3Q1LS7Jkv1q1a6B3ZtG45anwNQfbvD1TUDw87ng2vZA/MY179kIfTz+/BrWss1iUuNZtP3Yy2ef9iGdEC34P7vg//KY24P4b9QNN4Sf5dm+m33EW7TKf35ClL2Ho08OXXnE0VuGb1JUtSuxq/xoxewmdoOEiBzqbqwOSFYH4ajEw==" > /etc/ssh/trusted-user-ca-keys.pem
+grep -q '^TrustedUserCAKeys' /etc/ssh/sshd_config || echo 'TrustedUserCAKeys /etc/ssh/trusted-user-ca-keys.pem' | sudo tee -a /etc/ssh/sshd_config
+systemctl restart sshd
